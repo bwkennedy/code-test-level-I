@@ -29,6 +29,16 @@ The code for this challenge can be found at https://github.com/bwkennedy/code-te
 3. Data Files - These are the data files that designate the start and stop codones, as well as the codon/protein mappings:
     - CodonTable.csv
 
+### Running Unit Tests
+
+Unit tests have been provided to give you an idea about how the code should work.  
+
+1. Most IDEs have a built in test runner.  You should be able to run the tests directly from there.  
+2. You can also run the unit tests from the command line with the following command:
+```
+dotnet test
+```
+
 ### Hints
 
 1. You should not assume that the input sequence begins with the start codon. Any nucleotides before the start codon should be ignored.
