@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using InterviewQuestions.Builder;
 using InterviewQuestions.DataModel;
+using NUnit.Framework.Interfaces;
 
 namespace InterviewQuestions
 {
@@ -56,7 +58,25 @@ namespace InterviewQuestions
         /// <returns>Amino acid sequence</returns>
         public string Translate(string dna)
         {
-            return "";
+
+            var result = "";
+
+            dna = dna.Substring(dna.IndexOf("ATG"));
+
+            for (int i = 0; i < dna.Length; i += 3)
+            {
+                var codon = dna.Substring(i, 3).ToUpper();
+
+                if (_translationMap.Stops.Contains(codon))
+                    return result;
+
+                if (_translationMap.CodonMap.ContainsKey(codon))
+                {
+                    result += _translationMap.CodonMap.GetValueOrDefault(codon);
+                }
+            }
+
+            return result;
         }
     }
 }
