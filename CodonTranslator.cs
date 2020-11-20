@@ -56,7 +56,127 @@ namespace InterviewQuestions
         /// <returns>Amino acid sequence</returns>
         public string Translate(string dna)
         {
-            return "";
+            var result = "";
+
+            dna = dna.Substring(dna.IndexOf("ATG"));
+
+            for (int i = 0; i < dna.Length; i += 3)
+            {
+                var codon = dna.Substring(i, 3).ToUpper();
+
+                switch (codon)
+                {
+                    case "GCT":
+                    case "GCC":
+                    case "GCA":
+                    case "GCG":
+                        result += "A";
+                        break;
+                    case "CGT":
+                    case "CGC":
+                    case "CGA":
+                    case "CGG":
+                    case "AGA":
+                    case "AGG":
+                        result += "R";
+                        break;
+                    case "AAT":
+                    case "AAC":
+                        result += "N";
+                        break;
+                    case "GAT":
+                    case "GAC":
+                        result += "D";
+                        break;
+                    case "TGT":
+                    case "TGC":
+                        result += "C";
+                        break;
+                    case "CAA":
+                    case "CAG":
+                        result += "Q";
+                        break;
+                    case "GAA":
+                    case "GAG":
+                        result += "E";
+                        break;
+                    case "GGT":
+                    case "GGC":
+                    case "GGA":
+                    case "GGG":
+                        result += "G";
+                        break;
+                    case "CAT":
+                    case "CAC":
+                        result += "H";
+                        break;
+                    case "ATT":
+                    case "ATC":
+                    case "ATA":
+                        result += "I";
+                        break;
+                    case "TTA":
+                    case "TTG":
+                    case "CTT":
+                    case "CTC":
+                    case "CTA":
+                    case "CTG":
+                        result += "L";
+                        break;
+                    case "AAA":
+                    case "AAG":
+                        result += "K";
+                        break;
+                    case "ATG":
+                        result += "M";
+                        break;
+                    case "TTT":
+                    case "TTC":
+                        result += "F";
+                        break;
+                    case "CCT":
+                    case "CCC":
+                    case "CCA":
+                    case "CCG":
+                        result += "P";
+                        break;
+                    case "TCT":
+                    case "TCC":
+                    case "TCA":
+                    case "TCG":
+                    case "AGT":
+                    case "AGC":
+                        result += "S";
+                        break;
+                    case "ACT":
+                    case "ACC":
+                    case "ACA":
+                    case "ACG":
+                        result += "T";
+                        break;
+                    case "TGG":
+                        result += "W";
+                        break;
+                    case "TAT":
+                    case "TAC":
+                        result += "Y";
+                        break;
+                    case "GTT":
+                    case "GTC":
+                    case "GTA":
+                    case "GTG":
+                        result += "V";
+                        break;
+                    case "TAA":
+                    case "TGA":
+                    case "TAG":
+                        return result;
+                    default:
+                        continue;
+                }
+            }
+
+            return result;
         }
     }
 }
